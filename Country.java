@@ -7,7 +7,6 @@ class Country implements Measurable {
     private static double _measure = 0.0;
     public static double maxim = 0.0;
     public static int index;
-    public static int place_in_array = 0;
 
     public Country(String name, double measure) {
         _name = name;
@@ -36,13 +35,12 @@ class Country implements Measurable {
 
             if (Objects.isNull(objects[index]))
                 continue;
-            if (maxim < objects[index].getMeasure()) { 
+            if (maxim < objects[index].getMeasure()) {
                 maxim = objects[index].getMeasure();
-                place_in_array = index;
             }
 
         }
-        out.println("Largest area from the list is " + maxim + " in country of " + objects[index]);
-        return objects[place_in_array];
+        out.println("Largest area from the list is " + maxim);
+        return objects[--index];
     }
 }
